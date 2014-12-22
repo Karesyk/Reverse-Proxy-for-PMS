@@ -1,25 +1,25 @@
 <VirtualHost *:80>
-        ServerName example.com
+		ServerName example.com
 
-        <Location />
-            AuthType Basic
-            AuthName "Restricted area"
-            AuthUserFile /etc/apache2/htpasswd
-            Require valid-user
-        </Location>
+		<Location />
+			AuthType Basic
+			AuthName "Restricted area"
+			AuthUserFile /etc/apache2/htpasswd
+			Require valid-user
+		</Location>
 
-        <Proxy *>
-          Order deny,allow
-          Allow from all
-        </Proxy>
+		<Proxy *>
+			Order deny,allow
+			Allow from all
+		</Proxy>
 
-        ProxyRequests Off
-        ProxyPreserveHost On
-        ProxyPass / http://10.0.10.1:32400/
-        ProxyPassReverse / http://10.0.10.1:32400/
+		ProxyRequests Off
+		ProxyPreserveHost On
+		ProxyPass / http://10.0.10.1:32400/
+		ProxyPassReverse / http://10.0.10.1:32400/
 
-        RewriteEngine on
-        RewriteCond %{REQUEST_URI} !^/web
-        RewriteCond %{HTTP:X-Plex-Device} ^$
-        RewriteRule ^/$ /web/$1 [R,L]
+		RewriteEngine on
+		RewriteCond %{REQUEST_URI} !^/web
+		RewriteCond %{HTTP:X-Plex-Device} ^$
+		RewriteRule ^/$ /web/$1 [R,L]
 </VirtualHost>
