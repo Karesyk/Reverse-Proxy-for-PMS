@@ -1,0 +1,23 @@
+Reverse-Proxy-for-PMS
+=====================
+
+1. Install Apache and enable the "proxy_http" and "rewrite" modules
+   apt-get install apache2
+   a2enmod proxy_http
+   a2enmod rewrite
+
+2. Restart Apache as recommended
+   service apache2 restart
+
+3. Download and copy the "default"-VirtualHost and edit it to your needs
+   wget https://raw.githubusercontent.com/Karesyk/Reverse-Proxy-for-PMS/master/default
+   cp default /etc/apache2/sites-available/
+
+4. Create a htpasswd in your apache configuration
+   sudo htpasswd -bc /etc/apache2/htpasswd [username] [password]
+
+5. Restart Apache a secound time
+   service apache2 restart
+
+Congratulations! You have set up your reverse proxy for PMS in five easy steps.
+Now just enable port forwarding to your new Apache-server on port 80 and you are ready to go.
