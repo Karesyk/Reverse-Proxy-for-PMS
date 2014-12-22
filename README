@@ -1,5 +1,6 @@
 Reverse-Proxy-for-PMS
 =====================
+The Plex Media Server is an awesome tool to provide your media. The following tutorial describes how to install a reverse proxy based on Apache.
 
 1. Install Apache and enable the "proxy_http" and "rewrite" modules
    apt-get install apache2
